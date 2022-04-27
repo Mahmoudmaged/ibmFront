@@ -1,0 +1,33 @@
+<div class="overLay" *ngIf="load">
+    <div class="d-flex w-100 h-100 justify-content-center align-items-center">
+        <i class="fa fa-spinner fa-5x fa-spin"></i>
+    </div>
+</div>
+
+<section class="p-5 mx-5 mb-2">
+
+    <div class="container text-center">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6">
+                <input class="form-control inputData" type="text" placeholder="What You Looking For?">
+            </div>
+            <div class="col-md-6 m-3">
+                <button (click)="handelDiscovery()" class="btn  my-2 w-50 form-control ">Search</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section *ngIf='result' class="result p-5">
+
+    <div *ngIf='noResult'>
+        <h2 class="textCol alert alert-danger" >Sorry we can't find any matched result</h2>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <div *ngFor="let _searchResult of searchResult" class="col-12 textCol">
+            <p>
+                {{_searchResult.passage_text}}
+            </p>
+        </div>
+    </div>
+
+</section>
